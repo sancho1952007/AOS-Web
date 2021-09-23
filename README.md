@@ -15,6 +15,10 @@
 # What's The Current Version?
 <pre>Current Version: v1.0</pre>
 
+<br>
+
+# ***Note: Please Visit This Website On A Desktop, MAC Or PC.  As, This Doesn't Work On Mobile Phones...***
+
 <br><br>
 
 # Thank You, Star If You Like It & Follow Me For More Awesome Codes...
