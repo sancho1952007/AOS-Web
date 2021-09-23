@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser App</title>
+</head>
+<body>
+    <center>
+        <div class="tools">
+            <div class='buttons'>
+                <button><</button>
+                <button onclick='window.location.reload()'>⟳</button>
+                <button>></button>
+            </div>
+            <input class='input' name='text' type='text'>
+        </div>
+        <iframe name='browser' src='https://sancho1952007.github.io' class='iframe'></iframe>
+    </center>
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+    .input{
+        width: 85%;
+        margin-left: 10px;
+    }
+
+    .tools{
+        display: flex;
+        width: 100%;
+    }
+
+    .buttons{
+        float: left;
+    }
+
+    button{
+        font-family: 'Lilita One', cursive;
+        width: 50px;
+        font-size: 30px;
+        height: 40px;
+    }
+    iframe{
+        width: 100%;
+        height: 90vh;
+        border: 0px;
+    }
+
+    *{
+        outline: none;
+    }
+</style>
+
+<script>
+    document.querySelector('.input').addEventListener('keyup', key => {
+        if (key.keyCode === 13){
+            var text=(document.querySelector('.input').value);
+            if (text.includes('.com')){
+                console.log('URL')
+            }
+        }
+    });
+</script>
+
+</html>

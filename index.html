@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/Logo.png" type="image/x-icon">
+    <title>AOS OS</title>
+
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet"> 
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div class="loader" onselectstart='return false' onmousedown="return false" onkeypress="return false">
+        <center><img src="images/Loader.gif" class='loading-image' draggable='false'></center>
+        <center><h2 class='loading-text'>Loading AOS<sup>Web</sup></h2></center>
+    </div>
+
+    <!-- Desktop UI -->
+    <img src="icons/info.png" class='icon' alt="" onclick='document.getElementById("about-app").style.display="block";zVal+=1;document.querySelector("#about-app").style.zIndex=zVal;'>
+    <h3 class='app-name' id='about-app-name' onclick='document.getElementById("about-app").style.display="block";zVal+=1;document.querySelector("#about-app").style.zIndex=zVal;'></h3>
+
+    <img src="icons/browser.png" class='icon' onclick='document.getElementById("browser-app").style.display="block";zVal+=1;document.querySelector("#browser-app").style.zIndex=zVal;'>
+    <h3 class='app-name' id='browser-app-name' onclick='document.getElementById("browser-app").style.display="block";zVal+=1;document.querySelector("#browser-app").style.zIndex=zVal;'></h3>
+
+    <img src="icons/compiler.png" class='icon' onclick='document.getElementById("compiler-app").style.display="block";zVal+=1;document.querySelector("#compiler-app").style.zIndex=zVal;'>
+    <h3 class='app-name' id='compiler-app-name' onclick='document.getElementById("compiler-app").style.display="block";zVal+=1;document.querySelector("#compiler-app").style.zIndex=zVal;'></h3>
+
+    <img src="icons/chat_bot.png" class='icon' onclick='document.getElementById("chat_bot-app").style.display="block";zVal+=1;document.querySelector("#chat_bot-app").style.zIndex=zVal;'>
+    <h3 class='app-name' id='chat_bot-app-name' onclick='document.getElementById("chat_bot-app").style.display="block";zVal+=1;document.querySelector("#chat_bot-app").style.zIndex=zVal;'></h3>
+
+    <!-- Apps -->
+    <div class='app' id='about-app' ondrag="zVal+=1;this.style.zIndex=zVal;">
+        <div class='bar'>
+            <img class='close-btn' src='images/close.png' width='25px' onclick="document.querySelector('#about-app').style.display='none'">
+            <h2 class='title'>About</h2>
+        </div>
+        <center><iframe src='apps/About/index.html' class='app-frame' id='about-app-frame'></iframe></center>
+    </div>
+
+
+    <div class='app' id='browser-app' ondrag="zVal+=1;this.style.zIndex=zVal;">
+        <div class='bar'>
+            <img class='close-btn' src='images/close.png' width='25px' onclick="document.querySelector('#browser-app').style.display='none';document.getElementById('browser-app-frame').src='https://bing.com'">
+            <h2 class='title'>Browser</h2>
+        </div>
+        <center><iframe src='https://bing.com' class='app-frame' id="browser-app-frame"></iframe></center>
+    </div>
+
+    
+    <div class='app' id='compiler-app' ondrag="zVal+=1;this.style.zIndex=zVal;">
+        <div class='bar'>
+            <img class='close-btn' src='images/close.png' width='25px' onclick="document.querySelector('#compiler-app').style.display='none';">
+            <h2 class='title'>Code Compiler</h2>
+        </div>
+        <center><iframe src='https://sancho1952007.github.io/Auto-Code-Compiler' class='app-frame' id="compiler-app-frame"></iframe></center>
+    </div>
+
+    <div class='app' id='chat_bot-app' ondrag="zVal+=1;this.style.zIndex=zVal;">
+        <div class='bar'>
+            <img class='close-btn' src='images/close.png' width='25px' onclick="document.querySelector('#chat_bot-app').style.display='none';">
+            <h2 class='title'>Chat Bot</h2>
+        </div>
+        <center><iframe src='https://sancho1952007.github.io/Bot' class='app-frame' id="chat_bot-app-frame"></iframe></center>
+    </div>
+    
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <div class='menu'>
+            <input class='menu-input' placeholder='Search App' list='apps-list'>
+            <div class="menu-app" onclick='document.getElementById("about-app").style.display="block";zVal+=1;document.querySelector("#about-app").style.zIndex=zVal;toggleMenu();'>
+                <img src="icons/info.png" width="40px">&nbsp;<a onselectstart='return false'>About</a>
+            </div>
+
+            <div class="menu-app" onclick='document.getElementById("browser-app").style.display="block";zVal+=1;document.querySelector("#browser-app").style.zIndex=zVal;toggleMenu();'>
+                <img src="icons/browser.png" width="40px">&nbsp;<a onselectstart='return false'>Browser</a>
+            </div>
+
+            <div class="menu-app" onclick='document.getElementById("compiler-app").style.display="block";zVal+=1;document.querySelector("#compiler-app").style.zIndex=zVal;toggleMenu();'>
+                <img src="icons/compiler.png" width="40px">&nbsp;<a onselectstart='return false'>Code Compiler</a>
+            </div>
+
+            <div class="menu-app" onclick='document.getElementById("chat_bot-app").style.display="block";zVal+=1;document.querySelector("#chat_bot-app").style.zIndex=zVal;toggleMenu();'>
+                <img src="icons/chat_bot.png" width="40px">&nbsp;<a onselectstart='return false'>Chat Bot</a>
+            </div>
+        </div>
+
+        <img src="taskbar/logo-1.png" class='taskbar-icon' id='taskbar-logo' onmouseover="this.src='taskbar/logo-2.png'" onmouseout="this.src='taskbar/logo-1.png'" onclick='toggleMenu()'>
+
+        <input class='taskbar-input' placeholder="Enter Query/URL Here...">
+
+        <img src='icons/info.png' class='taskbar-icon' onclick='document.getElementById("about-app").style.display="block";zVal+=1;document.querySelector("#about-app").style.zIndex=zVal;'>
+
+        <img src='icons/browser.png' class='taskbar-icon' onclick='document.getElementById("browser-app").style.display="block";zVal+=1;document.querySelector("#browser-app").style.zIndex=zVal;'>
+
+        <img src='icons/compiler.png' class='taskbar-icon' onclick='document.getElementById("compiler-app").style.display="block";zVal+=1;document.querySelector("compiler-app").style.zIndex=zVal;'>
+
+        <img src='icons/chat_bot.png' class='taskbar-icon' onclick='document.getElementById("chat_bot-app").style.display="block";zVal+=1;document.querySelector("chat_bot-app").style.zIndex=zVal;'>
+
+        <h2 class='clock' onselectstart='return false'>!Failed To Load Time!</h2>
+    </div>
+
+    <datalist id='apps-list'>
+        <option value='About'></option>
+        <option value='Browser'></option>
+        <option value='Code Compiler'></option>
+        <option value='Chat Bot'></option>
+    </datalist>
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+    *{
+        outline: none;
+    }
+
+    html{
+        background-image: url('https://source.unsplash.com/1600x900/?nature');
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        height: 100vh;
+    }
+
+    .loader{
+        width: 100%;
+        height: 100vh;
+        background-color: white;
+        position: fixed;
+        align-items: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        cursor: none;
+    }
+
+    .loading-text{
+        font-family: 'Montserrat Alternates', sans-serif;
+        cursor: none;
+    }
+
+    .taskbar{
+        width: 100%;
+        height: 50px;
+        background-color: grey;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        display: flex;
+        align-items: center;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .menu{
+        position: absolute;
+        width: 400px;
+        height: 500px;
+        background-color: lightgrey;
+        border: 1px solid black;
+        border-radius: 10px;
+        z-index: 0;
+        transition: all .50s linear;
+        left: -410px;
+        bottom: 51px;
+    }
+    .menu-input{
+        width: 396px;
+        height: 40px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border: 0px;
+        font-size: 25px;
+        font-family: 'Quicksand', sans-serif;
+    }
+    .menu-app{
+        align-items: center;
+        display: flex;
+        border: 1px solid darkgrey;
+        font-size: 30px;
+
+        font-family: 'Poppins', sans-serif;
+        cursor: default;
+    }
+    .menu-app:hover{
+        background-color: grey;
+    }
+
+    .taskbar-input{
+        border: 2px solid grey;
+        border-radius: 10px;
+        width: 350px;
+        height: 40px;
+        font-size: 25px;
+        margin-right: 20px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .taskbar-input:hover{
+        border: 2px solid black;
+    }
+    .taskbar-input:focus{
+        border: 2px solid paleturquoise;
+    }
+
+    .taskbar-icon{
+        width: 40px;
+        height: 40px;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .taskbar-icon:hover{
+        background-color: darkgrey;
+    }
+
+    #taskbar-logo{
+        margin: 2px;
+        background-color: white;
+        border: 0px;
+        border-radius: 50%;
+        padding: 2px;
+        margin-right: 10px;
+    }
+
+    .clock{
+        font-family: 'Gluten', cursive;
+        position: absolute;
+        top: 15%;
+        right: -5%;
+        transform: translate(-50%, -50%);
+        cursor: default;
+    }
+
+    .app{
+        border: 1px solid black;
+        border-radius: 10px;
+        min-width: 400px;
+        min-height: 250px;
+        background-color: darkgrey;
+        position: absolute;
+        cursor: move;
+    }
+    .close-btn{
+        cursor: pointer;
+        position: relative;
+        margin-left: 10px;
+    }
+    .bar{
+        display: flex;
+        align-items: center;
+        margin: -5px;
+    }
+    .title{
+        width: 100%;
+        font-size: 20px;
+        cursor: default;
+        font-family: 'Rajdhani', sans-serif;
+        text-align: center;
+        margin-right: 30px;
+        cursor: move;
+    }
+    .app-frame{
+        width: 100%;
+        border-radius: 10px;
+        border: 0px;
+        height: 250px;
+    }
+    .icon{
+        width: 70x;
+        height: 70px;
+        background-color: lightgrey;
+        padding: 5px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-right: 1px solid black;
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+    }
+    .app-name{
+        width: 70px;
+        background-color: lightgrey;
+        text-align: center;
+        padding: 5px;
+        margin-top: -10px;
+        border: 0px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-family: 'Baloo 2', cursive;
+        border-right: 1px solid black;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+
+    /* App Sizes */
+
+    #about-app{
+        width: 600px;
+        height: 340px;
+    }
+    #about-app-frame{
+        height: 289px;
+    }
+
+    #browser-app{
+        width: 800px;
+        height: 500px;
+    }
+
+    #browser-app-frame{
+        height: 450px;
+    }
+
+    #compiler-app{
+        width: 700px;
+    }
+
+    #compiler-app-frame{
+        width: 100%;
+        height: 400px;
+        background-color: white;
+    }
+
+    #chat_bot-app{
+        width: 700px;
+    }
+
+    #chat_bot-app-frame{
+        height: 400px;
+    }
+    
+
+    /* App Icon Names */
+    #about-app-name::after{
+        content: "About";
+    }
+
+    #browser-app-name::after{
+        content: "Browser";
+    }
+
+    #compiler-app-name::after{
+        content: "Code Compiler";
+    }
+
+    #chat_bot-app-name::after{
+        content: "Chat Bot";
+    }
+</style>
+
+</html>
+
+<script>
+    $(window).load(function() {
+        $('.loader').fadeOut('slow');
+
+        $('.app').hide();
+        $('.app').draggable({container: 'html', scroll: false});
+        $('.app').resizable();
+
+        $("#about-app").resize(function() {
+            $('#about-app-frame').height($('#about-app').height()-50+"px");
+        });
+
+        $("#browser-app").resize(function() {
+            $('#browser-app-frame').height($('#browser-app').height()-50+"px");
+        });
+
+        $("#compiler-app").resize(function() {
+            $('#compiler-app-frame').height($('#compiler-app').height()-50+"px");
+        });
+
+        $("#chat_bot-app").resize(function() {
+            $('#chat_bot-app-frame').height($('#chat_bot-app').height()-50+"px");
+        });
+});
+
+$(".app").position({
+  my: "center",
+  at: "center",
+  of: "html"
+});
+
+</script>
+
+<script>
+    var zVal=0;
+    function getTime(){
+        var now=new Date();
+        document.querySelector('.clock').innerHTML=`${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+        setTimeout(getTime, 500)
+    }
+    getTime();
+</script>
+
+<script>
+    var menu=document.querySelector('.menu');
+    var open=false;
+    function toggleMenu(){
+        if (open==true){
+            menu.style.left='-410px';
+            open=false;
+        }
+        else{
+            menu.style.left='5px';
+            open=true;
+            start.focus();
+        }
+    }
+</script>
+
+<script>
+    document.querySelector('.taskbar-input').addEventListener('keyup', key2 => {
+        if (key2.keyCode == 13){
+            if (document.querySelector('.taskbar-input').value.replace(' ','')!=''){
+                console.log('OK')
+                document.querySelector('#browser-app').style.display='block';document.getElementById('browser-app-frame').src=`https://bing.com/search?q=${document.querySelector('.taskbar-input').value}`;
+                document.querySelector('.taskbar-input').value=""; 
+            }
+        }
+    });
+</script>
+
+<script>
+    var start = document.querySelector('.menu-input');
+    start.addEventListener('keyup', key3 => {
+        if (key3.keyCode == 13){
+            if (start.value.replace(' ', '')!=""){
+                if (start.value=='About'){
+                    document.getElementById("about-app").style.display="block";zVal+=1;document.querySelector("#about-app").style.zIndex=zVal;toggleMenu();
+                    start.value='';
+                }
+                else if (start.value=='Browser'){
+                    document.getElementById("browser-app").style.display="block";zVal+=1;document.querySelector("#browser-app").style.zIndex=zVal;toggleMenu();
+                    start.value='';
+                }
+                else if (start.value=="Code Compiler"){
+                    document.getElementById("compiler-app").style.display="block";zVal+=1;document.querySelector("#compiler-app").style.zIndex=zVal;toggleMenu();
+                    start.value='';
+                }
+                else if (start.value=='Chat Bot'){
+                    document.getElementById("chat_bot-app").style.display="block";zVal+=1;document.querySelector("#chat_bot-app").style.zIndex=zVal;toggleMenu();
+                    start.value='';
+                }
+                else{
+                    document.querySelector('#browser-app').style.display='block';document.getElementById('browser-app-frame').src=`https://bing.com/search?q=${start.value}`;toggleMenu();
+                    start.value='';    
+                }
+            }
+            else{}
+        }
+    });
+</script>
