@@ -3,7 +3,7 @@
 <br>
 
 # What Is It?
-<pre>A Cool Web OS Designed By Me...</pre>
+<pre>It's A Cool Web OS Designed By Sancho Godinho...</pre>
 
 <br>
 
