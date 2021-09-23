@@ -429,6 +429,7 @@ $(".app").position({
                 console.log('OK')
                 document.querySelector('#browser-app').style.display='block';document.getElementById('browser-app-frame').src=`https://bing.com/search?q=${document.querySelector('.taskbar-input').value}`;
                 document.querySelector('.taskbar-input').value=""; 
+                $('.taskbar-input').blur();
             }
         }
     });
